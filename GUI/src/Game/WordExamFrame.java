@@ -1,5 +1,9 @@
 package Game;
-
+/**
+*@author Rain
+*
+*
+*/
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
@@ -19,76 +23,76 @@ import javax.swing.JTextField;
 public class WordExamFrame extends JFrame 
                            implements ActionListener
 {
-	//¶¨ÒåÒ»¸ö´æ·ÅºòÑ¡×Ö·ûµÄÊı×é
+	//å®šä¹‰ä¸€ä¸ªå­˜æ”¾å€™é€‰å­—ç¬¦çš„æ•°ç»„
 	final char[] choiceChar={'q','w','e','r','t','y','u','i','o','p','[',']','a','s','d','f','g','h','j','k','l'
 			,';','z','x','c','v','b','n','m',',','.','/','Q','W','E','R','T','Y','U','I','O','P',
 			'{','}','A','S','D','F','G','H','J','K','L',':','"','Z','X','C','V','B','N','M','<','>',
 			'?','|','!','@','#','$','%','^','&','(',')','_','-','+','=','`','~','*'};
-	//¶¨Òå¼ÇÂ¼ÓÃ»§µÃ·ÖµÄ±äÁ¿
+	//å®šä¹‰è®°å½•ç”¨æˆ·å¾—åˆ†çš„å˜é‡
 	int score =0;
-	//¶¨Òå½çÃæÉÏ³öÏÖµÄÔªËØ
-	JButton btnBegin=new JButton("¿ªÊ¼");
-	JButton btnClose=new JButton("¹Ø±Õ");
-	JLabel lblScore=new JLabel("µÃ·Ö£º");
+	//å®šä¹‰ç•Œé¢ä¸Šå‡ºç°çš„å…ƒç´ 
+	JButton btnBegin=new JButton("å¼€å§‹");
+	JButton btnClose=new JButton("å…³é—­");
+	JLabel lblScore=new JLabel("å¾—åˆ†ï¼š");
 	
-	JLabel lblWord=new JLabel("µÈ´ı²úÉúµÄ×Ö·û...");
+	JLabel lblWord=new JLabel("ç­‰å¾…äº§ç”Ÿçš„å­—ç¬¦...");
 	
-	JLabel lblTime=new JLabel("µ¹¼ÆÊ±£º");
+	JLabel lblTime=new JLabel("å€’è®¡æ—¶ï¼š");
 	JTextField tfdWord=new JTextField(20);
 	
-	//¶¨Òå½çÃæµÄInit³õÊ¼»¯·½·¨
+	//å®šä¹‰ç•Œé¢çš„Initåˆå§‹åŒ–æ–¹æ³•
 	public void Init()
 	{
 		setSize(400,300);
-		setTitle("´ò×Ö²âÊÔ³ÌĞò£¬¼ì²âÄãÊÇ·ñÎª¼üÈË£¡");
+		setTitle("æ‰“å­—æµ‹è¯•ç¨‹åºï¼Œæ£€æµ‹ä½ æ˜¯å¦ä¸ºé”®äººï¼");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		/*****½«ÉÏÃæ6¸ö½çÃæÔªËØ¼ÓÈëµ½ÆÁÄ»ÉÏ*****/
+		/*****å°†ä¸Šé¢6ä¸ªç•Œé¢å…ƒç´ åŠ å…¥åˆ°å±å¹•ä¸Š*****/
 		
-		//1.ÉèÖÃÕûÌå´°¿ÚµÄ²¼¾Ö·½Ê½--±ß¿ò²¼¾Ö
+		//1.è®¾ç½®æ•´ä½“çª—å£çš„å¸ƒå±€æ–¹å¼--è¾¹æ¡†å¸ƒå±€
 		setLayout(new BorderLayout());
 		
-		//2.Ôö¼Ó¶¥²¿ÔªËØ
-		//2.1´´½¨Ò»¸ö¶¥²¿ÍĞÅÌJPanel
+		//2.å¢åŠ é¡¶éƒ¨å…ƒç´ 
+		//2.1åˆ›å»ºä¸€ä¸ªé¡¶éƒ¨æ‰˜ç›˜JPanel
 		JPanel pTop=new JPanel();
 		pTop.setBackground(Color.yellow);
 		pTop.add(btnBegin);
 		pTop.add(btnClose);
 		pTop.add(lblScore);
-		//2.2½«pTop·Åµ½ÆÁÄ»µÄ¶¥²¿
+		//2.2å°†pTopæ”¾åˆ°å±å¹•çš„é¡¶éƒ¨
         add(pTop,BorderLayout.NORTH);	
         
-        //3.Ôö¼ÓÖĞ¼äÔªËØ
+        //3.å¢åŠ ä¸­é—´å…ƒç´ 
         add(lblWord,BorderLayout.CENTER);
         
-        //4.Ôö¼Óµ×²¿ÔªËØ
+        //4.å¢åŠ åº•éƒ¨å…ƒç´ 
         JPanel pBottom =new JPanel();
         pBottom.setBackground(Color.green);
         pBottom.add(lblTime);
         pBottom.add(tfdWord);
         add(pBottom,BorderLayout.SOUTH);
         
-        lblWord.setFont(new Font("ºÚÌå",1,50));
+        lblWord.setFont(new Font("é»‘ä½“",1,50));
         lblWord.setHorizontalAlignment(JLabel.CENTER);
 	}
-	//¶¨Òå¹¹Ôì·½·¨
+	//å®šä¹‰æ„é€ æ–¹æ³•
 	public WordExamFrame()
 	{
-		//1.µ÷ÓÃInit½øĞĞ½çÃæµÄ³õÊ¼»¯
+		//1.è°ƒç”¨Initè¿›è¡Œç•Œé¢çš„åˆå§‹åŒ–
 		Init();
 		
-		//2.ÉèÖÃ¶ÔÊ±¼äµÄ¼àÌı
-		//2.1¶ÔÊäÈë¿òµÄ»Ø³µÊÂ¼ş½øĞĞ¼àÌı
+		//2.è®¾ç½®å¯¹æ—¶é—´çš„ç›‘å¬
+		//2.1å¯¹è¾“å…¥æ¡†çš„å›è½¦äº‹ä»¶è¿›è¡Œç›‘å¬
 		tfdWord.addActionListener(this);
 		
-		//´´½¨²¢Æô¶¯²úÉú×Ö·ûµÄÈÎÎñ
+		//åˆ›å»ºå¹¶å¯åŠ¨äº§ç”Ÿå­—ç¬¦çš„ä»»åŠ¡
 		TaskOfCreateWord t1=new TaskOfCreateWord();
 		t1.start();
 		
-		//´´½¨²¢Æô¶¯µ¹¼ÆÊ±Ïß³Ì
+		//åˆ›å»ºå¹¶å¯åŠ¨å€’è®¡æ—¶çº¿ç¨‹
 		new TaskOfCountTime().start();
 	}
 	
-	//¶¨Òå²úÉúËæ»ú×Ö·ûµÄÏß³ÌÈÎÎñÀà--ÄÚ²¿Àà
+	//å®šä¹‰äº§ç”Ÿéšæœºå­—ç¬¦çš„çº¿ç¨‹ä»»åŠ¡ç±»--å†…éƒ¨ç±»
 	class TaskOfCreateWord extends Thread
 	{   
 		@Override
@@ -96,13 +100,13 @@ public class WordExamFrame extends JFrame
 			Random rd =new Random();
 			while(totalTime>0)
 			{	
-			//Ëæ»ú²úÉúÒ»¸ö×Ö·û
+			//éšæœºäº§ç”Ÿä¸€ä¸ªå­—ç¬¦
 				int index =rd.nextInt(choiceChar.length);
 			String x=""+ choiceChar[index];
-			//ÏÔÊ¾ÔÚÆÁÄ»ÖĞÑë
+			//æ˜¾ç¤ºåœ¨å±å¹•ä¸­å¤®
 			lblWord.setText(x);
 			
-			//ÈÎÎñĞİÃß¼´Í£¶Ù¼¸Ãë
+			//ä»»åŠ¡ä¼‘çœ å³åœé¡¿å‡ ç§’
 			try {
 				sleep(1000*2);
 			} catch (Exception e) { 
@@ -114,34 +118,34 @@ public class WordExamFrame extends JFrame
 		}//end run
 	}//end class
 	
-	//±àĞ´main×÷Îª³ÌĞòµÄÈë¿Ú
+	//ç¼–å†™mainä½œä¸ºç¨‹åºçš„å…¥å£
 	public static void main(String[] args) {
 		WordExamFrame f1 =new WordExamFrame();
 	                  f1.setVisible(true);	
 	}
-//ÓÃ»§ÊÂ¼ş´¦Àí
+//ç”¨æˆ·äº‹ä»¶å¤„ç†
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		// Çø·ÖÊÂ¼şÔ´
-		if(arg0.getSource()== tfdWord)//ÓÃ»§ÔÚÊäÈë¿òÖĞ°´»Ø³µ
+		// åŒºåˆ†äº‹ä»¶æº
+		if(arg0.getSource()== tfdWord)//ç”¨æˆ·åœ¨è¾“å…¥æ¡†ä¸­æŒ‰å›è½¦
 		{
-			//»ñµÃÓÃ»§ÊäÈëµÄÄÚÈİ
+			//è·å¾—ç”¨æˆ·è¾“å…¥çš„å†…å®¹
 			String s1 =tfdWord.getText();
-			//»ñµÃµ±Ç°ÏÔÊ¾µÄÄÚÈİ
+			//è·å¾—å½“å‰æ˜¾ç¤ºçš„å†…å®¹
 			String s2 =lblWord.getText();
-			//±È½Ï
+			//æ¯”è¾ƒ
 			if(s1.equals(s2))
 			{   
 				score++;
-				lblScore.setText("µÃ·Ö£º"+score);
+				lblScore.setText("å¾—åˆ†ï¼š"+score);
 			}
-		}//Çå¿ÕÊäÈë¿òÖĞµÄÄÚÈİ
+		}//æ¸…ç©ºè¾“å…¥æ¡†ä¸­çš„å†…å®¹
 		tfdWord.setText("");
 		
 	}//end actionOerfirmed
-	//¶¨Òå¼ÆÊ±±äÁ¿
+	//å®šä¹‰è®¡æ—¶å˜é‡
 	int totalTime= 2*60;
-	//¶¨ÒåÒ»¸öµ¹¼ÆÊ±Ïß³ÌÈÎÎñÀàTaskOfCountTime
+	//å®šä¹‰ä¸€ä¸ªå€’è®¡æ—¶çº¿ç¨‹ä»»åŠ¡ç±»TaskOfCountTime
 	class TaskOfCountTime extends Thread
 	{
 		public void run()
@@ -151,9 +155,9 @@ public class WordExamFrame extends JFrame
 			sleep(1000);
 			   }catch(Exception e){}
 			totalTime--;
-			lblTime.setText("µ¹¼ÆÊ±£º"+totalTime);
+			lblTime.setText("å€’è®¡æ—¶ï¼š"+totalTime);
 		      }while(totalTime>0);
-			JOptionPane.showMessageDialog(null, "±¾´Î²âÊÔ½áÊø£¡");
+			JOptionPane.showMessageDialog(null, "æœ¬æ¬¡æµ‹è¯•ç»“æŸï¼");
 		}//end run
 	}
 	}//end class TaskOfCountTime
